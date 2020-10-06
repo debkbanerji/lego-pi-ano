@@ -1,23 +1,16 @@
 import socket
 import sys
+import numpy as np
 
 # Create a UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 server_address = ('localhost', 10000)
-message = 'This is the message.  It will be repeated.'
 
-try:
+print('Writing piano information to {}, port {}'.format(server_address[0],server_address[1]))
 
-    # Send data
-    print('sending {}'.format(message))
-    sent = sock.sendto(str.encode(message), server_address)
+while(True):
 
-    # Receive response
-    print('waiting to receive')
-    data, server = sock.recvfrom(4096)
-    print('received {}'.format(data))
-
-finally:
-    print('closing socket')
-    sock.close()
+    # TODO: Read in from raspberry pi GPIO
+    message = np.array([0,1,2,3,4], dtype='uintc')
+    sock.sendto(message.tobytes(), server_address)
