@@ -5,7 +5,7 @@ from sampler import sampler
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
 key_offset = 2 # start from GPIO 2
-key_numbers = [*range(key_offset,25+key_offset)] # 25 keys
+key_numbers = [*range(0, 25)] # 25 keys
 # pedal = 25
 # shift = 26
 

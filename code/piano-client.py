@@ -12,5 +12,5 @@ print('Writing piano information to {}, port {}'.format(server_address[0],server
 while(True):
 
     # TODO: Read in from raspberry pi GPIO
-    message = np.array([0,1,2,3,4], dtype='uintc')
+    message = np.array([1,2,3,4], dtype='short')
     sock.sendto(message.tobytes(), server_address)
