@@ -17,7 +17,7 @@ sampler.start()
 # set up UDP server
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-server_address = ('localhost', 10000)
+server_address = (SERVER_LAN_ADDRESS_STRING_HERE, 11111)
 print('Listing on {}, port {}'.format(server_address[0], server_address[1]))
 sock.bind(server_address)
 
