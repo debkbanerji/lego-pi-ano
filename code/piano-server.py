@@ -33,7 +33,7 @@ try:
         else:
         # print(sys.getsizeof(data))
             pressed_keys = np.frombuffer(data, dtype=np.uintc)
-            print(pressed_keys)
+            # print(pressed_keys)
             # if old_pressed_keys is None or not np.array_equal(old_pressed_keys, pressed_keys):
             #     print(pressed_keys)
             sampler.update_optimized_v2(pressed_keys.copy())
