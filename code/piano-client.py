@@ -28,13 +28,13 @@ while(True):
     pressed_map = {}
     for key in key_numbers:
         pressed_map[key] = GPIO.input(key + key_offset) != GPIO.LOW
-    pressed_keys = np.array([1 if pressed_map[key] else 0 for key in key_numbers], dtype='short')
+    pressed_keys = np.array([1 if pressed_map[key] else 0 for key in key_numbers], dtype=np.uintc)
     current_buffer = np.vstack([current_buffer, pressed_keys])
     
     buffer_reset_index = (buffer_reset_index + 1) % buffer_size
     if (buffer_reset_index == 0):
         buffer_sum = current_buffer.sum(axis=0)
-        smoothed_pressed_keys = np.array([1 if i > buffer_size / 2 else 0 for i in buffer_sum], dtype='short')
+        smoothed_pressed_keys = np.array([1 if i > buffer_size / 2 else 0 for i in buffer_sum], dtype=np.uintc)
         # print(smoothed_pressed_keys)
 
         sock.sendto(smoothed_pressed_keys.tobytes(), server_address)
