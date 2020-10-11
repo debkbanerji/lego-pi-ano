@@ -5,7 +5,7 @@ import numpy as np
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
 key_offset = 2 # start from GPIO 2
-key_numbers = [*range(0, 25)] # 25 keys
+key_numbers = [*range(0, 26)] # 25 keys + pedal
 
 GPIO.setwarnings(False) # Ignore warning for now, TODO: forget about revisiting this
 GPIO.setmode(GPIO.BCM) # Use physical pin numbering
@@ -30,7 +30,7 @@ while(True):
         pressed_map[key] = GPIO.input(key + key_offset) != GPIO.LOW
     pressed_keys = np.array([1 if pressed_map[key] else 0 for key in key_numbers], dtype=np.uintc)
     current_buffer = np.vstack([current_buffer, pressed_keys])
-    
+
     buffer_reset_index = (buffer_reset_index + 1) % buffer_size
     if (buffer_reset_index == 0):
         buffer_sum = current_buffer.sum(axis=0)
@@ -38,6 +38,6 @@ while(True):
         # print(smoothed_pressed_keys)
 
         sock.sendto(smoothed_pressed_keys.tobytes(), server_address)
-        
+
         # reset buffer
         current_buffer = np.zeros(len(key_numbers))
