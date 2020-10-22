@@ -19,19 +19,44 @@
   <div class="jumbotron">
     <h1 class="display-4">Playable Lego Piano</h1>
     <p class="lead">Making the <a href="https://www.lego.com/en-us/product/grand-piano-21323" target="_blank">Lego Ideas Grand Piano</a>
-      playable using a Raspberry Pi, and <a href="https://www.youtube.com/watch?v=9nazm3_OXac" target="_blank">using it as a game controller</a>.
+      fully playable using a Raspberry Pi, and <a href="https://www.youtube.com/watch?v=9nazm3_OXac" target="_blank">using it as a game controller</a>.
     </p>
     <p class="lead">
+      This is a modification of the original set so that each individual key is recognized. This makes it fully playable, unlike the original.
       The piano doesn't require an app, is fully wireless, and can either play the music through an internal speaker, or stream it over
       a local network for better sound quality and/or gaming. The outside is indistinguishable from that of the original model, and
       the feel of the keys is unchanged. <a href="https://github.com/mihir0/sampler" target="_blank">The sampler used</a>
-      supports full 25-key rollover with realistic sounds for each key.
-      Code and diagrams included.</p>
+      supports full 25-key rollover with realistic sounds for each key. </p>
+    <p class="lead">
+      <a href="https://github.com/debkbanerji/lego-pi-ano/tree/master/code" target="_blank">Code</a>
+      and <a href="https://github.com/debkbanerji/lego-pi-ano/tree/master/docs/assets" target="_blank">diagrams</a>
+      are included for anyone who wants to try modifying their own set.</p>
   </div>
-  <div class="row">
-    <div class="col">
-      <h2>Demos</h2>
-      TODO: add
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <h2>Demos</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Realistic Playability</h4>
+        <div class="embed-responsive embed-responsive-16by9">
+          <video controls>
+            <source src="assets/demo_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Gaming</h4>
+        <div class="embed-responsive embed-responsive-16by9">
+          <video controls>
+            <source src="assets/demo_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
   </div>
 </body>
