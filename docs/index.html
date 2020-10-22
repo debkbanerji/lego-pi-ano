@@ -41,26 +41,59 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <h2>Demos</h2>
+        <h2 style="padding-left: 12px">Demos</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h4>Realistic Playability</h4>
-        <div class="embed-responsive embed-responsive-16by9">
-          <video controls>
-            <source src="assets/demo_1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div style="padding: 12px">
+          <h4>Realistic Playability</h4>
+          <div class="embed-responsive embed-responsive-16by9">
+            <video controls>
+              <source src="assets/demo_1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div style="padding-top: 10px">
+            <p>In this demo, the sound was being streamed to a soundbar, so the quality
+              is quite good. You can also use a smaller internal speaker, but it's not
+              likely to sound as nice.
+            </p>
+            <p>The cool part is that the software supports full 25 key rollover,
+              so you can press multiple keys at the same time and the sound will still be
+              realistic.</p>
+            <p>Some keys are a little uneven since I was experimenting with switch types,
+              but if you want to make your own, using the same switch creation procedure
+              described further down this page should result in pretty even keys.</p>
+          </div>
         </div>
       </div>
       <div class="col-md-6">
-        <h4>Gaming</h4>
-        <div class="embed-responsive embed-responsive-16by9">
-          <video controls>
-            <source src="assets/demo_2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div style="padding: 12px">
+          <h4>Gaming</h4>
+          <div class="embed-responsive embed-responsive-16by9">
+            <video controls>
+              <source src="assets/demo_2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div style="padding-top: 10px">
+            <p>You can also use the piano as one of the strangest game controllers
+              of all time.
+            </p>
+            <p>I tested it with Batman: Arkham Knight, since the combat doesn't
+              require many potentially uncomfortable button combos. I tested
+              it with a single player game because the piano didn't play well
+              with anticheat in some multiplayer titles. The latency
+              is not bad, and using UDP made it very easy to program. Theoretically,
+              one could improve this by reprogramming the protocol in bluetooth,
+              but if you're worried about latency, you wouldn't use this in the
+              first place
+            </p>
+            <p>It does function wirelessly, but it was plugged in when I recorded
+              the video since I had been playing for a bit and needed to charge
+              the piano. Welcome to 2020.
+          </div>
         </div>
       </div>
     </div>
