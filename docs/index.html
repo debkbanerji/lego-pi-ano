@@ -78,8 +78,7 @@
             </video>
           </div>
           <div style="padding-top: 10px">
-            <p>You can also use the piano as one of the strangest game controllers
-              of all time.
+            <p>You can also use the piano as a very strange game controller.
             </p>
             <p>I tested it with Batman: Arkham Knight, since the combat doesn't
               require many potentially uncomfortable button combos. I played a
@@ -99,18 +98,36 @@
     <div class="row">
       <div class="col">
         <h2 style="padding-left: 12px">Making Your Own</h2>
-        <div style="margin-left: 12px" class="p-3 mb-2 bg-warning text-dark"><b>Disclaimer:</b> Some prior technical knowledge is required
+        <div style="margin-left: 12px" class="p-3 mb-2 bg-warning text-dark"><b>Disclaimer:</b> A little prior technical knowledge is required
           when putting this together - you'll need to know the basics of how a Raspberry Pi works, and how to execute
           some simple Python code. The code and diagrams themselves aren't very polished, but the procedure should be fairly
           reproducible with some tinkering. That being said, I make no guarantees about your success - the result
-          has worked prettty well for me, but that's just a sample size of 1.</div>
+          has worked pretty well for me, but that's just a sample size of 1.</div>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <div style="padding: 12px">
           <h4>The Software</h4>
-          TODO: add instructions
+          <p>You can find the <a href="https://github.com/debkbanerji/lego-pi-ano/tree/master/code" target="_blank">code</a> here.
+          </p>
+          <p>
+            The directory contains piano client code that needs to be run on the Raspberry Pi - I recommend setting it up to run on boot
+            so that the piano works as expected whenever it's powered on. There are also 2 server files provided - one for the
+            piano audio and one for controlling the computer's keyboard for gaming. As always, make sure the dependencies for
+            the files are satisfied. For the piano audio, make sure you've set up the sampler submodule correctly and built the sampler
+            cython. For the keyboard, you'll need to set up the key bindings within the file. Finally, make sure that the server and
+            client are running on the same network and communicating properly before building. It's all in Python.
+          </p>
+          <p>
+            If you want to run the audio directly on the Raspberry Pi with a
+            small speaker, you can combine the server and client code pretty easily.
+          </p>
+          <p>
+            I recommend making sure the software is working as expected before you start putting together the hardware (manually connect the GPIO pins
+            to test that inputs are being registered correctly), and testing every so often during the build to make sure you haven't broken
+            anything.
+          </p>
         </div>
       </div>
     </div>
