@@ -102,7 +102,8 @@
           when putting this together - you'll need to know the basics of how a Raspberry Pi works, and how to execute
           some simple Python code. The code and diagrams themselves aren't very polished, but the procedure should be fairly
           reproducible with some tinkering. That being said, I make no guarantees about your success - the result
-          has worked pretty well for me, but that's just a sample size of 1.</div>
+          has worked pretty well for me, but that's just a sample size of 1. I recommend reading through the information in its
+          entirety before you start making your own.</div>
       </div>
     </div>
     <div class="row">
@@ -131,14 +132,55 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <div style="padding: 12px">
-          <h4>The Hardware</h4>
-          TODO: add diagrams
-        </div>
+    <div class="row" style="padding: 12px; margin-bottom: 20px">
+      <div class="col-12">
+        <h4>The Hardware</h4>
+      </div>
+      <div class="col-lg-6">
+        <img class="d-block w-100" src="assets/diagram_2.jpg">
+      </div>
+      <div class="col-lg-6">
+        <p>The key idea behind the design is using aluminum foil around the base and each
+          key and connecting each key's foil to a GPIO output on the Raspbrry Pi to determine
+          whether or not a key is pressed by checking whether or not the circuit was broken.
+          This design results in keys which feel unchanged from those the original set, and
+          hardware that can be built without needing to get a bunch of switches or printing
+          a circuit board.
+        </p>
+        <p>
+          We start by building just the keyboard
+          portion of the Lego set (this starts at bag 11 of the instructions) - we'll revisit
+          the rest of the set once this is working reliably. Once that's done, we'll wrap
+          the entire base of it in foil - this will be our ground once we connect it to the
+          Raspberry Pi's ground. We also add a male to female wire on 25 separate GPIO pins
+          starting from 2, and an additional wire for ground (consult a pin map of your model for this step).
+          We haven't yet built the switches, but this is a good time to test out the software by
+          manually closing the circuits.</p>
+      </div>
+      <div class="col-lg-6">
+        <img class="d-block w-100" src="assets/diagram_3.jpg">
+      </div>
+      <div class="col-lg-6">
+        <p>We need to extend the metal surface of each pin so that it can reliably contact
+          the base containing the ground. In order to do this, we fold the aluminum foil
+          a few times to make it sturdier and then cut it to the correct dimnsions (rough approximation
+          in the picture). Then, we fold it in half so that it can wrap around each pin
+          and secure it with electrical tape, tightly enough so that the foil makes contact with
+          the metal pin. We do this 26 times to create one 'leaf' for each key, and one for ground.
+          It's a good idea to check the connections again at this point.</p>
+        <p>It's kind of weird, but works well for what we're trying to do. In an ideal
+          situation, we'd secure the connections with solder, but I don't own a soldering
+          iron, and this solution is significantly easier for most people.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <img class="d-block w-100" src="assets/diagram_4.jpg">
+      </div>
+      <div class="col-lg-6">
+        <img class="d-block w-100" src="assets/diagram_5.jpg">
       </div>
     </div>
+    TODO: Finish Writing
   </div>
 </body>
 
