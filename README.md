@@ -1,2 +1,2 @@
 # Lego Pi-ano
-See [debkbanerji.github.io/lego-pi-ano](http://debkbanerji.github.io/lego-pi-ano)
+See [lego-pi-ano.debkbanerji.com](http://lego-pi-ano.debkbanerji.com)
