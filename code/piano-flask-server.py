@@ -20,17 +20,17 @@ for key in key_numbers:
     GPIO.setup(key + key_offset, GPIO.IN, pull_up_down=GPIO.PUD_UP) # TODO: figure out what this means
 
 
-host_name = None
 port = 8080
 app = Flask(__name__)
 @app.route('/test') # Test endpoint
 def test():
     return 'Hello from Pi-ano server'
 
-@app.route('/') # Test endpoint
+@app.route('/keys') # Test endpoint
 def main():
     buffer_array = np.array(buffer.queue)
     sum_array = buffer_array.sum(axis=0)
+    print(sum_array)
     result_array = np.where(sum_array > 0, 1, 0)
     return json.dumps(result_array.tolist())
 
@@ -53,7 +53,7 @@ class Pin_Listener_Thread(threading.Thread):
 
 
 if __name__ == '__main__':
-    flask_thread = threading.Thread(target=lambda: app.run(host=host_name, port=port, debug=True, use_reloader=False))
+    flask_thread = threading.Thread(target=lambda: app.run(host='0.0.0.0', port=port, use_reloader=False))
     hardware_thread  = Pin_Listener_Thread("hardware_thread")
 
     flask_thread.start()
