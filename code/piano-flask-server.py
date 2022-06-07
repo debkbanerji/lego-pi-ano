@@ -5,8 +5,11 @@ import numpy as np
 import threading
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
-BUFFER_SIZE = 300 # add a little memory for if a key was pressed - tweak this if things seem off
-buffer = Queue(maxsize=BUFFER_SIZE)
+import logging
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+
+MAX_BUFFER_SIZE = 50 # add a little memory for if a key was pressed - tweak this if things seem off
+buffer = Queue(maxsize=MAX_BUFFER_SIZE)
 
 NUM_KEYS = 26  # 25 keys + pedal
 key_numbers = [*range(0, NUM_KEYS)]
@@ -55,7 +58,7 @@ class Pin_Listener_Thread(threading.Thread):
 
 
 if __name__ == '__main__':
-    flask_thread = threading.Thread(target=lambda: app.run(host='0.0.0.0', port=port, use_reloader=False))
+    flask_thread = threading.Thread(target=lambda: app.run(host='0.0.0.0', port=port, use_reloader=False, threaded=True))
     hardware_thread  = Pin_Listener_Thread("hardware_thread")
 
     flask_thread.start()
