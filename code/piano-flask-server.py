@@ -21,10 +21,13 @@ for key in key_numbers:
 
 
 port = 8080
-app = Flask(__name__)
-@app.route('/test') # Test endpoint
-def test():
-    return 'Hello from Pi-ano server'
+app = Flask(__name__,
+            static_url_path='',
+            static_folder='static')
+
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
 
 @app.route('/keys') # Test endpoint
 def main():
