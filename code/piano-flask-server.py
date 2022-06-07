@@ -30,7 +30,6 @@ def test():
 def main():
     buffer_array = np.array(buffer.queue)
     sum_array = buffer_array.sum(axis=0)
-    print(sum_array)
     result_array = np.where(sum_array > 0, 1, 0)
     return json.dumps(result_array.tolist())
 
