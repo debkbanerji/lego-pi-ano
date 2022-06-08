@@ -36,14 +36,18 @@ setInterval(() => {
             .then(data => {
                 if (isSoundEnabled) {
                     const oldPressedKeys = pressedKeys;
-                    pressedKeys = data.map(pin => pinMap[pin]);
+                    pressedKeys = [];
+
+                    data.forEach((pressed, pin) => {
+                        pressedKeys[pinMap[pin]] = pressed || 0;
+                    });
 
                     keysTarget.innerHTML = "";
 
                     Object.keys(pressedKeys).forEach(keyIndex => {
                         if (
                             pressedKeys[keyIndex] &&
-                            !oldPressedKeys[keyIndex]
+                            oldPressedKeys[keyIndex] == null
                         ) {
                             sounds[keyIndex].play();
                         }
@@ -64,3 +68,35 @@ setInterval(() => {
         isRequestInFlight = true;
     }
 }, FETCH_INTERVAL_MS);
+
+const pinMapControls = document.getElementById("pin-map-controls");
+document
+    .getElementById("toggle-pin-map-controls")
+    .addEventListener("click", () => {
+        pinMapControls.hidden = !pinMapControls.hidden;
+    });
+
+Array(MAX_KEY_COUNT)
+    .fill(0)
+    .forEach((_, i) => {
+        const container = document.createElement("div");
+        container.innerHTML = `
+        <div>
+        <b>Pin ${i} Key: </b>  <input type="number" id="key-${i}" name="key-${i}" step="1" min="0" max="${MAX_KEY_COUNT -
+            1}" value="${pinMap[i]}">
+        </div>
+      `;
+        pinMapControls.appendChild(container);
+    });
+
+[...pinMapControls.children].forEach(container => {
+    container.children[0].children[1].addEventListener("change", val => {
+        const newPinMap = [];
+        [...pinMapControls.children].forEach((container, i) => {
+            newPinMap[i] = Number(container.children[0].children[1].value);
+        });
+        pinMap = newPinMap;
+    });
+});
+
+// TODO: Write to pin map and URL on value change
