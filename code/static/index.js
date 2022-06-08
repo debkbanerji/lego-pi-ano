@@ -24,7 +24,7 @@ const sounds = Array(MAX_KEY_COUNT)
 
 function onTapPage() {
     isSoundEnabled = true;
-    keysTarget.innerHTML = "Waiting for signal...";
+    keysTarget.innerHTML = "Waiting for Signal/Loading in audio files...";
 }
 document.addEventListener("click", onTapPage);
 document.addEventListener("touchstart", onTapPage);
