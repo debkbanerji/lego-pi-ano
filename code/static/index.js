@@ -54,9 +54,8 @@ setInterval(() => {
                         }`;
                         keysTarget.appendChild(key);
                     });
-
-                    isRequestInFlight = false;
                 }
+                isRequestInFlight = false;
             })
             .catch(function() {
                 keysTarget.innerHTML = "No signal received yet";
