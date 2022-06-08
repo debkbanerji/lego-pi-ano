@@ -22,6 +22,16 @@ const sounds = Array(MAX_KEY_COUNT)
         });
     });
 
+try {
+    const urlParams = new URLSearchParams(window.location.search);
+    newPinMap = JSON.parse(urlParams.get("pinMap"));
+    newPinMap.forEach((pin, key) => {
+        pinMap[key] = pin;
+    });
+} catch (e) {
+    // do nothing
+}
+
 function onTapPage() {
     isSoundEnabled = true;
     keysTarget.innerHTML = "Waiting for Signal/Loading in audio files...";
@@ -83,7 +93,7 @@ Array(MAX_KEY_COUNT)
         container.innerHTML = `
         <div>
         <b>Pin ${i} Key: </b>  <input type="number" id="key-${i}" name="key-${i}" step="1" min="0" max="${MAX_KEY_COUNT -
-            1}" value="${pinMap[i]}">
+            1}" value="${pinMap[i] || i}">
         </div>
       `;
         pinMapControls.appendChild(container);
@@ -96,6 +106,11 @@ Array(MAX_KEY_COUNT)
             newPinMap[i] = Number(container.children[0].children[1].value);
         });
         pinMap = newPinMap;
+        history.pushState(
+            {},
+            "Lego Pi-ano",
+            `${window.location.origin}?pinMap=${JSON.stringify(pinMap)}`
+        );
     });
 });
 
