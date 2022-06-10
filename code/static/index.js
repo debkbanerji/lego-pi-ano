@@ -57,7 +57,8 @@ setInterval(() => {
                     Object.keys(pressedKeys).forEach(keyIndex => {
                         if (
                             pressedKeys[keyIndex] &&
-                            oldPressedKeys[keyIndex] == null
+                            (oldPressedKeys[keyIndex] == null ||
+                                oldPressedKeys[keyIndex] === 0)
                         ) {
                             sounds[keyIndex].play();
                         }
