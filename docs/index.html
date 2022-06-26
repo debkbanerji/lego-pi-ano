@@ -37,7 +37,7 @@
     />
     <meta
       property="og:url"
-      content="https://debkbanerji.com/lego-pi-ano/assets/diagram_11.jpg"
+      content="https://debkbanerji.com/lego-pi-ano/assets/top_shot_preview.jpg"
     />
 
     <style>
@@ -111,59 +111,75 @@
   <body>
     <div class="jumbotron">
       <h1 class="display-4">Playable Lego Piano</h1>
-      <div style="margin-bottom: 5px;">
-        <small>
-          <span>Made with ♥ by Deb</span> &bull;
-          <a href="https://github.com/debkbanerji/lego-pi-ano" target="_blank"
-            >Source Code</a
-          >
-        </small>
+      <div class="row">
+        <div class="col-md-8">
+          <div style="margin-bottom: 5px;">
+            <small>
+              <span>Made with ♥ by Deb</span> &bull;
+              <a
+                href="https://github.com/debkbanerji/lego-pi-ano"
+                target="_blank"
+                >Source Code</a
+              >
+            </small>
+          </div>
+          <p class="lead">
+            Making the
+            <a
+              href="https://www.lego.com/en-us/product/grand-piano-21323"
+              target="_blank"
+              >Lego Ideas Grand Piano</a
+            >
+            fully playable using a Raspberry Pi, and
+            <a
+              href="https://www.youtube.com/watch?v=9nazm3_OXac"
+              target="_blank"
+              >using it as a game controller</a
+            >.
+          </p>
+          <p>
+            This is a modification of the original set so that each individual
+            key is recognized. This makes it fully playable,
+            <a
+              href="https://www.youtube.com/watch?v=AyY2Fn1XPqc"
+              target="_blank"
+            >
+              unlike the original</a
+            >. The feel of the keys is unchanged and it supports full 25-key
+            rollover with realistic sounds for each key, thanks to samples that
+            my friend Mihir provided.
+          </p>
+          <p>
+            <a
+              href="https://github.com/debkbanerji/lego-pi-ano/tree/master/code"
+              target="_blank"
+              >Code</a
+            >
+            and
+            <a
+              href="https://github.com/debkbanerji/lego-pi-ano/tree/master/docs/assets"
+              target="_blank"
+              >diagrams</a
+            >
+            are included for anyone who wants to try modifying their own set.
+            The modification was designed to be easily put together using cheap
+            and easily available materials. If you run into issues, you can open
+            a pull request or contact me through
+            <a href="https://github.com/debkbanerji" target="_blank">GitHub</a>
+            and I may be able to help (no guarantees).
+          </p>
+          <p>
+            This is documentation for what is the second major version of this
+            project. It was designed to be far more reliable and easy to
+            reproduce than the first. I wouldn't have recommend for most people
+            who own the piano to try the first version of the project, but with
+            some time, I think anyone could reproduce this one quite well.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <img class="img-fluid rounded" src="assets/top_shot_preview.jpg" />
+        </div>
       </div>
-      <p class="lead">
-        Making the
-        <a
-          href="https://www.lego.com/en-us/product/grand-piano-21323"
-          target="_blank"
-          >Lego Ideas Grand Piano</a
-        >
-        fully playable using a Raspberry Pi, and
-        <a href="https://www.youtube.com/watch?v=9nazm3_OXac" target="_blank"
-          >using it as a game controller</a
-        >.
-      </p>
-      <p>
-        This is a modification of the original set so that each individual key
-        is recognized. This makes it fully playable, unlike the original. The
-        feel of the keys is unchanged and it supports full 25-key rollover with
-        realistic sounds for each key, thanks to samples that my friend Mihir
-        provided.
-      </p>
-      <p>
-        <a
-          href="https://github.com/debkbanerji/lego-pi-ano/tree/master/code"
-          target="_blank"
-          >Code</a
-        >
-        and
-        <a
-          href="https://github.com/debkbanerji/lego-pi-ano/tree/master/docs/assets"
-          target="_blank"
-          >diagrams</a
-        >
-        are included for anyone who wants to try modifying their own set. The
-        modification was designed to be easily put together using cheap and
-        easily available materials. If you run into issues, you can open a pull
-        request or contact me through
-        <a href="https://github.com/debkbanerji" target="_blank">GitHub</a> and
-        I may be able to help (no guarantees).
-      </p>
-      <p>
-        This is documentation for what is the second major version of this
-        project. It was designed to be far more reliable and easy to reproduce
-        than the first. I wouldn't have recommend for most people who own the
-        piano to try the first version of the project, but with some time, I
-        think anyone could reproduce this one quite well.
-      </p>
     </div>
     <div class="container-fluid">
       <div class="row">
@@ -217,7 +233,7 @@
         </div>
         <div class="col-md-4">
           <div style="padding: 12px;">
-            <h4>Gaming for some reason</h4>
+            <h4>Gaming, for some reason</h4>
             <div class="embed-responsive embed-responsive-16by9">
               <video controls>
                 <source src="assets/demo_2.mp4" type="video/mp4" />
@@ -245,8 +261,8 @@
               </p>
               <p>
                 Note that I haven't updated the code for the new switch design,
-                but you can dig through the git history if for some cursed
-                reason you want to reproduce this.
+                but you can dig through the git history or get in touch with me
+                if for some cursed reason you want to reproduce this.
               </p>
             </div>
           </div>
@@ -259,7 +275,7 @@
             <b>Disclaimer:</b> A little technical knowledge is required when
             putting this together - you'll need to know the basics of how a
             Raspberry Pi works, and how to run some simple code. A little
-            Googling goes a long way here - These are things that should be
+            Googling goes a long way here - these are things that should be
             doable to figure out for someone who was able to put together the
             base set. The procedure should be fairly reproducible with some
             tinkering. That being said, I make no guarantees about your success
@@ -326,7 +342,11 @@
           <h4>The Hardware</h4>
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_2.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_2.jpg"
+          />
         </div>
         <div class="col-lg-6">
           <p>
@@ -351,7 +371,11 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_3.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_3.jpg"
+          />
         </div>
         <div class="col-lg-6">
           <p>
@@ -373,13 +397,25 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_4.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_4.jpg"
+          />
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_5.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_5.jpg"
+          />
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_7.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_7.jpg"
+          />
         </div>
         <div class="col-lg-6">
           <p>
@@ -406,7 +442,11 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_8.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_8.jpg"
+          />
         </div>
         <div class="col-lg-6">
           <p>
@@ -426,19 +466,39 @@
         </div>
 
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_9.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_9.jpg"
+          />
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_11.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_11.jpg"
+          />
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_12.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_12.jpg"
+          />
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_14.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_14.jpg"
+          />
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_16.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_16.jpg"
+          />
         </div>
         <div class="col-lg-6">
           <p>
@@ -448,7 +508,11 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <img class="d-block w-100" src="assets/diagram_17.jpg" />
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_17.jpg"
+          />
         </div>
         <div class="col-lg-6">
           <p>
