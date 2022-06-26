@@ -1,6 +1,0 @@
-*.c
-*.pyd
-*.pyc
-*.html
-build/
-__pycache__
