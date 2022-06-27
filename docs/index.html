@@ -315,25 +315,33 @@
               <li>
                 <b>Accompanying Raspbrry Pi stuff</b>
                 - Make sure you have a keyboard, mouse, monitor, correct display
-                cable, micro SD card, etc. so you can set up the Pi
+                cable, micro SD card, etc. so you can set up the Pi. I'd
+                recommend getting a longish power cable, unless you're going
+                with the power bank backed piano.
               </li>
               <li>
                 <b>Raspberry Pi jumper wires</b>
                 - Make sure at least one side of each wire has a female
                 connector so you can connect it to the Pi. We'll be removing the
-                Dupont connector thingy at the other end. We'll need 26 wires,
-                assuming none break.
+                Dupont connector thingy at the other end. We'll need 26,
+                assuming none break, so get extras.
               </li>
               <li>
                 <b>Copper/Aluminium Tape</b>
                 - <i>Important Note</i> - Make sure you buy tape where the
-                adhesive side is also conductive
+                adhesive side is also conductive.
               </li>
               <li>
                 <b>Small Paper Clips</b>
                 - <i>Important Note</i> - Make sure their widths are less than
                 the width of the thin part of each key (one unit) and that their
-                surfaces are conductive
+                surfaces are conductive. We'll need 25, assuming none break, so
+                get extras.
+              </li>
+              <li>
+                <b>Power Bank</b>
+                - <i>Optional</i> - Only required if you want your piano to be
+                wireless.
               </li>
               <li>
                 <b>Scissors</b>
@@ -342,19 +350,19 @@
                 <b>Tweezers</b>
                 - <i>Optional</i> - You can make do without these, but they make
                 things much easier, and also help remove tape if you're undoing
-                mistakes
+                mistakes.
               </li>
               <li>
                 <b>Continuity Tester</b>
                 - <i>Optional</i> - Highly recommended so you can check that
                 circuits are closing as expected while you're building the
-                switches. Make sure you get one that can verify that can check
-                circuits that aren't live. Mine was small and quite cheap.
+                switches. Make sure you get one that can check circuits that
+                aren't live. Mine was small and quite cheap.
               </li>
               <li>
                 <b>Rubbing Alcohool/Alcohol Wipes</b>
                 - <i>Optional</i> - You'll only needs these to remove tape
-                residue if you mess something up
+                residue if you mess something up.
               </li>
               <li>
                 <b>A Wifi Network</b>
@@ -385,10 +393,11 @@
 
               The setup process has been greatly simplified since the first
               version. A lot of items here are not in as much detail as they
-              could be, since tutorials for these steps online will be more
-              comprehensive, and if something doesn't work right away, Google is
-              your best bet anyway. For each step, you'll very likely have to
-              just Google how to do it, but let me know if something looks off.
+              could be, since online tutorials for these steps online will be
+              more comprehensive, and if something doesn't work right away,
+              Google is your best bet anyway. For each step, you'll very likely
+              have to just Google how to do it, but let me know if something
+              looks off.
             </p>
             <ol>
               <li>
@@ -411,12 +420,12 @@
               </li>
               <li>
                 Run `piano-flask-server.py` using Python - I believe you'll need
-                to be using Python 3, and the pip you used will have to match
+                to be using Python 3, and the pip you used will have to match.
               </li>
               <li>
                 Connect your Raspberry pi to your wifi network, and set it up so
                 that it will only boot when a wifi connection is available (I
-                believe you can do this from the bios). Alternatively, you can
+                believe you can do this from the BIOS). Alternatively, you can
                 look up how to get the Pi to host its own wifi network, but I
                 haven't tested this.
               </li>
@@ -432,8 +441,8 @@
                 correctly.
               </li>
               <li>
-                Set up the Pi so that the Python script runs at startup - for
-                me, I believe modifying my bashrc did the trick.
+                Set up the Pi so that the Python script runs at startup - I
+                believe modifying my bashrc did the trick.
               </li>
               <li>
                 If everything went well, you shouldn't need to change software
@@ -451,19 +460,20 @@
             </p>
             <ul>
               <li>
-                Switching to web Bluetooth - Assuming the APIs are mature enough
+                Switching to web Bluetooth - Assuming the APIs are mature
+                enough.
               </li>
               <li>
                 Switching to app based Bluetooth - Annoying due to being tied to
-                app stores
+                app stores.
               </li>
               <li>
                 Switching to web sockets in browser - Getting this to work over
-                local network would be really painful
+                local network seems painful.
               </li>
               <li>
-                Adding support for the pressing of the pedal being recognized
-                and incorporated into the sound
+                Adding support for the pressing of the pedal being recognized,
+                and incorporated into the sound.
               </li>
               <li>
                 Porting the old code over - these are non browser based
@@ -471,7 +481,7 @@
                 increased setup. That being said, if these were updated for the
                 new switch designs, the responsiveness would be much better
                 (these are UDP based) and it would allow for functionality such
-                as gaming
+                as gaming or adding a speaker to the Pi itself.
               </li>
             </ul>
           </div>
@@ -480,13 +490,6 @@
       <div class="row" style="padding: 12px; margin-bottom: 20px;">
         <div class="col-12">
           <h4>The Hardware</h4>
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
-            src="assets/diagram_2.jpg"
-          />
         </div>
         <div class="col-lg-6">
           <p>
@@ -501,15 +504,9 @@
             matter. If your tape is thin, it might tear easily - an easy fix for
             this is just to double up.
           </p>
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
-            src="assets/diagram_3.jpg"
-          />
-        </div>
-        <div class="col-lg-6">
+          <!-- </div>
+
+        <div class="col-lg-6"> -->
           <p>
             We start by building just the keyboard portion of the Lego set (this
             starts at bag 11 of the instructions) - we'll revisit the rest of
@@ -518,23 +515,38 @@
             assemblies so that you can work on the areas in the following
             pictures - it's annoying, but not as tricky as it looks, based on my
             experience. Once that's done, we'll wrap the entire base underneath
-            the keys in tape - this will be our ground once we connect it to the
-            Raspberry Pi's ground. To do this, connect it using the tape across
-            the bottom of the base so you can connect to the Raspberry Pi ground
-            wire on the other side (remove the Dupont connector using the
-            tweezers, and wrap the tape around the end of the wire). We also add
-            a wire on 25 separate GPIO pins starting from 2, and an additional
-            wire for ground (consult a pin map of your model for this step). We
-            haven't yet built the switches, but this is a good time to test out
-            the software by manually closing the circuits and making sure the
-            keys on the UI light up/produce sound.
+            the keys in tape (or the individual plates which are then linked) -
+            this will be our ground once we connect it to the Raspberry Pi's
+            ground. To do this, connect it using the tape across the bottom of
+            the base so you can connect to the Raspberry Pi ground wire on the
+            other side (remove the Dupont connector using the tweezers, and wrap
+            the tape around the end of the wire). We also add a wire on 25
+            separate GPIO pins starting from 2, and an additional wire for
+            ground (consult a pin map of your model for this step). We haven't
+            yet built the switches, but this is a good time to test out the
+            software by manually closing the circuits and making sure the keys
+            on the UI light up/produce sound.
           </p>
         </div>
         <div class="col-lg-6">
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
-            src="assets/diagram_3.jpg"
+            src="assets/base_1.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/base_3.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/base_2.jpg"
           />
         </div>
         <div class="col-lg-6">
@@ -552,7 +564,21 @@
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
-            src="assets/diagram_3.jpg"
+            src="assets/clip_1.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/clip_2.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/clip_3.jpg"
           />
         </div>
         <div class="col-lg-6">
@@ -563,15 +589,6 @@
             (eyeballing the length usually works, and you can fix this with more
             tape anyway).
           </p>
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
-            src="assets/diagram_4.jpg"
-          />
-        </div>
-        <div class="col-lg-6">
           <p>
             Use the cone that the key rests on to poke a hole in the tape where
             it would normally go. Cut a thinner strip of tape along the side to
@@ -582,7 +599,21 @@
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
-            src="assets/diagram_4.jpg"
+            src="assets/key_1.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/key_2.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/key_3.jpg"
           />
         </div>
         <div class="col-lg-6">
@@ -597,41 +628,18 @@
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
-            src="assets/diagram_4.jpg"
+            src="assets/key_4.jpg"
           />
         </div>
         <div class="col-lg-6">
           <p>
-            Remove the Depont connectors from the ends of the wires using
+            Remove the Dupont connectors from the ends of the wires using
             tweezers, and bend them around the ends of each paperclip (be
             careful - use the tweezers for this). Secure the connection with the
             tape. Repeat the process with each key in order. Try not to mess up
             the key order, but if you do, the software can allow you to remap
             the keys (as long as you have connected the wires to GPIO).
           </p>
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
-            src="assets/diagram_4.jpg"
-          />
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
-            src="assets/diagram_5.jpg"
-          />
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
-            src="assets/diagram_7.jpg"
-          />
-        </div>
-        <div class="col-lg-6">
           <p>Don't forget to connect the ground wire to the base</p>
           <p>
             Once again, it's a good idea to check the connections before
@@ -642,7 +650,49 @@
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
+            src="assets/dupont_1.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/dupont_2.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/dupont_3.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/dupont_4.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/key_5.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
             src="assets/diagram_8.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_9.jpg"
           />
         </div>
         <div class="col-lg-6">
@@ -668,13 +718,6 @@
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
-            src="assets/diagram_9.jpg"
-          />
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="img-fluid rounded"
-            style="margin-bottom: 30px;"
             src="assets/diagram_11.jpg"
           />
         </div>
@@ -693,6 +736,13 @@
           />
         </div>
         <div class="col-lg-6">
+          <p>
+            Make sure everything works before you seal it in. We then build the
+            rest of the piano as usual. The only other tricky part is step 288,
+            but isn't too bad if the keys are handled a little carefully.
+          </p>
+        </div>
+        <div class="col-lg-6">
           <img
             class="img-fluid rounded"
             style="margin-bottom: 30px;"
@@ -701,9 +751,8 @@
         </div>
         <div class="col-lg-6">
           <p>
-            We then build the rest of the piano as usual. The only other tricky
-            part is step 288, but isn't too bad if the keys are handled a little
-            carefully.
+            Once we're done, the Raspberry Pi should be accessible from the side
+            panel, so we can plug it in, add a power bank, etc.
           </p>
         </div>
         <div class="col-lg-6">
@@ -712,13 +761,6 @@
             style="margin-bottom: 30px;"
             src="assets/diagram_17.jpg"
           />
-        </div>
-        <div class="col-lg-6">
-          <p>
-            Once we're done, the Raspberry Pi should be accessible from the side
-            panel, so we can plug it in, swap out the speaker, add a power bank,
-            etc.
-          </p>
         </div>
       </div>
     </div>
