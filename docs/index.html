@@ -384,7 +384,7 @@
               your best bet anyway. For each step, you'll very likely have to
               just Google how to do it, but let me know if something looks off.
             </p>
-            <ul>
+            <ol>
               <li>
                 Set up the Pi with an OS, if it doesn't have one already. I
                 believe I used the default Raspbian.
@@ -421,7 +421,7 @@
               <li>
                 Navigate to `(the pi's ip address):8080` (ex:
                 `192.168.0.13:8080`) in a pc or phone browser that's on the same
-                network, as the Pi, and make sure the Ui shows up. If it
+                network, as the Pi, and make sure the UI shows up. If it
                 doesn't, check that everything is connected to the network
                 correctly.
               </li>
@@ -433,15 +433,41 @@
                 If everything went well, you shouldn't need to change software
                 on the Pi anymore, so you can run it headless from now on.
               </li>
-            </ul>
+            </ol>
 
             <p>
               <b>Room for improvement</b><br />
               The software is far from perfect, and could be improved in many
-              ways. The reason these haven't been done is because I haven't yet
-              been able to justify the time commitment, but let me know if you'd
-              be interested.
+              ways, most of which would offer much better responsiveness. The
+              reason these haven't been done is because I haven't yet been able
+              to justify the time commitment, but let me know if you'd be
+              interested.
             </p>
+            <ul>
+              <li>
+                Switching to web Bluetooth - Assuming the APIs are mature enough
+              </li>
+              <li>
+                Switching to app based Bluetooth - Annoying due to being tied to
+                app stores
+              </li>
+              <li>
+                Switching to web sockets in browser - Getting this to work over
+                local network would be really painful
+              </li>
+              <li>
+                Adding support for the pressing of the pedal being recognized
+                and incorporated into the sound
+              </li>
+              <li>
+                Porting the old code over - these are non browser based
+                solutions, which I don't recommend starting with because of the
+                increased setup. That being said, if these were updated for the
+                new switch designs, the responsiveness would be much better
+                (these are UDP based) and it would allow for functionality such
+                as gaming
+              </li>
+            </ul>
           </div>
         </div>
       </div>
