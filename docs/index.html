@@ -330,6 +330,12 @@
                 adhesive side is also conductive
               </li>
               <li>
+                <b>Small Paper Clips</b>
+                - <i>Important Note</i> - Make sure their widths are less than
+                the width of the thin part of each key (one unit) and that their
+                surfaces are conductive
+              </li>
+              <li>
                 <b>Scissors</b>
               </li>
               <li>
@@ -484,29 +490,16 @@
         </div>
         <div class="col-lg-6">
           <p>
-            The key idea behind the design is using aluminum foil around the
-            base and each key and connecting each key's foil to a GPIO output on
-            the Raspebrry Pi to determine whether or not a key is pressed by
-            checking whether or not the circuit was broken. This design results
-            in keys which feel unchanged from those the original set, and
-            hardware that can be built without needing to get a bunch of
-            switches or printing a circuit board.
-          </p>
-          <p>
-            We start by building just the keyboard portion of the Lego set (this
-            starts at bag 11 of the instructions) - we'll revisit the rest of
-            the set once this is working reliably. If your piano is already
-            built, take it apart and lift out the keyboard and power functions
-            assemblies so that you can work on the areas in the following
-            pictures - it's annoying, but not as tricky as it looks, based on my
-            experience. Once that's done, we'll wrap the entire base underneath
-            the keys in foil - this will be our ground once we connect it to the
-            Raspberry Pi's ground. We also add a male to female wire on 25
-            separate GPIO pins starting from 2, and an additional wire for
-            ground (consult a pin map of your model for this step). We haven't
-            yet built the switches, but this is a good time to test out the
-            software by manually closing the circuits and making sure the keys
-            on the UI light up/produce sound.
+            The key idea behind the design is using copper (or aluminium) tape
+            around the base and each key and connecting each key's tape to a
+            GPIO output on the Raspbrry Pi to determine whether or not a key is
+            pressed by checking whether or not the circuit was closed. This
+            design results in keys which feel unchanged from those the original
+            set, and hardware that can be built without needing to get a bunch
+            of switches or printing a circuit board. In these pictures, I used a
+            mix of aluminium and copper tape, but practically, it doesn't
+            matter. If your tape is thin, it might tear easily - an easy fix for
+            this is just to double up.
           </p>
         </div>
         <div class="col-lg-6">
@@ -518,21 +511,103 @@
         </div>
         <div class="col-lg-6">
           <p>
-            We need to extend the metal surface of each pin so that it can
-            reliably contact the base containing the ground. In order to do
-            this, we fold the aluminum foil a few times to make it sturdier and
-            then cut it to the correct dimnsions (rough approximation in the
-            picture). Then, we fold it in half so that it can wrap around each
-            pin and secure it with electrical tape, tightly enough so that the
-            foil makes contact with the metal pin. We do this 26 times to create
-            one 'leaf' for each key, and one for ground. It's a good idea to
-            check the connections again at this point.
+            We start by building just the keyboard portion of the Lego set (this
+            starts at bag 11 of the instructions) - we'll revisit the rest of
+            the set once this is working reliably. If your piano is already
+            built, take it apart and lift out the keyboard and power functions
+            assemblies so that you can work on the areas in the following
+            pictures - it's annoying, but not as tricky as it looks, based on my
+            experience. Once that's done, we'll wrap the entire base underneath
+            the keys in tape - this will be our ground once we connect it to the
+            Raspberry Pi's ground. To do this, connect it using the tape across
+            the bottom of the base so you can connect to the Raspberry Pi ground
+            wire on the other side (remove the Dupont connector using the
+            tweezers, and wrap the tape around the end of the wire). We also add
+            a wire on 25 separate GPIO pins starting from 2, and an additional
+            wire for ground (consult a pin map of your model for this step). We
+            haven't yet built the switches, but this is a good time to test out
+            the software by manually closing the circuits and making sure the
+            keys on the UI light up/produce sound.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_3.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <p>
+            Take apart the bottom of a key (the three pieces under the long
+            brick)
           </p>
           <p>
-            It's kind of weird, but works well for what we're trying to do. In
-            an ideal situation, we'd secure the connections with solder, but I
-            don't own a soldering iron, and this solution is significantly
-            easier for most people.
+            Slightly pry open a paperclip, so that it can lay within the 3x1
+            brick. Seal it in with the 3x1 plate between the sides of the
+            paperclip
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_3.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <p>
+            Cut long strips of tape that are just a little less than the width
+            of the thin part of each key. Lay them along the length of each key
+            so that they lay over and secure the exposed part of the paperclip
+            (eyeballing the length usually works, and you can fix this with more
+            tape anyway).
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_4.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <p>
+            For the black keys, the tape should go over the edge slightly, but
+            it can stop a bit before the edge for the white keys. The only
+            important thing is that they connect to the base when pressed down,
+            so check the connections.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_4.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <p>
+            Use the cone that the key rests on to poke a hole in the tape where
+            it would normally go. Cut a thinner strip of tape along the side to
+            reseal this, and check that the connection still works.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            class="img-fluid rounded"
+            style="margin-bottom: 30px;"
+            src="assets/diagram_4.jpg"
+          />
+        </div>
+        <div class="col-lg-6">
+          <p>
+            Remove the Depont connectors from the ends of the wires using
+            tweezers, and bend them around the ends of each paperclip (be
+            careful - use the tweezers for this). Secure the connection with the
+            tape. Repeat the process with each key in order. Try not to mess up
+            the key order, but if you do, the software can allow you to remap
+            the keys (as long as you have connected the wires to GPIO).
           </p>
         </div>
         <div class="col-lg-6">
@@ -557,24 +632,7 @@
           />
         </div>
         <div class="col-lg-6">
-          <p>
-            Once that's done, we tape each leaf to the correct key in sequence,
-            as shown in the picture, making sure adjacent contacts don't touch
-            each other. It's a good idea to use one layer of tape so that there
-            isn't too much resistance between adjacent keys. I found that tape
-            with a matte finish worked better for this part than the glossier
-            electrical tape I had been using.
-          </p>
-          <p>
-            It may be valuable to wrap each section of the base individually so
-            that you can move the plates and make the keys easier to work with.
-          </p>
           <p>Don't forget to connect the ground wire to the base</p>
-          <p>
-            If the keys don't return to rest easily due to the added friction,
-            adding a rubber band to each hammer to pull it down over the the
-            corresponding key helps a ton.
-          </p>
           <p>
             Once again, it's a good idea to check the connections before
             proceeding.
