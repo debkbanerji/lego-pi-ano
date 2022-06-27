@@ -308,14 +308,14 @@
                     >Raspberry Pi</a
                   ></b
                 >
-                - Get a standard sized Raspberry Pi, and make sure thaty the
+                - Get a standard sized Raspberry Pi, and make sure that the
                 model you get has a wireless adapter (wifi). Other than that,
                 the exact model shouldn't matter
               </li>
               <li>
                 <b>Accompanying Raspbrry Pi stuff</b>
-                - Make sure you have a keyboard, mouse monitor, correct display
-                cable, etc. so you can set up the Pi
+                - Make sure you have a keyboard, mouse, monitor, correct display
+                cable, micro SD card, etc. so you can set up the Pi
               </li>
               <li>
                 <b>Raspberry Pi jumper wires</b>
@@ -350,6 +350,12 @@
                 - <i>Optional</i> - You'll only needs these to remove tape
                 residue if you mess something up
               </li>
+              <li>
+                <b>A Wifi Network</b>
+                - <i>Optional</i> - May not really be required, but highly
+                recommended, at least to set up. See the software section for a
+                possible alternative, where the Pi hosts its own network.
+              </li>
             </ul>
           </div>
         </div>
@@ -369,29 +375,72 @@
               here.
             </p>
             <p>
-              The directory contains piano client code that needs to be run on
-              the Raspberry Pi - I recommend setting it up to run on boot so
-              that the piano works as expected whenever it's powered on. There
-              are also 2 server files provided - one for the piano audio and one
-              for controlling the computer's keyboard for gaming. As always,
-              make sure the dependencies for the files are satisfied. For the
-              piano audio, make sure you've set up the sampler submodule
-              correctly and built the sampler cython. For the keyboard, you'll
-              need to set up the key bindings within the file. Finally, make
-              sure that the server and client are running on the same network
-              and communicating properly before building. It's all in Python.
+              <b>Setup Process (do this before starting hardware work)</b><br />
+
+              The setup process has been greatly simplified since the first
+              version. A lot of items here are not in as much detail as they
+              could be, since tutorials for these steps online will be more
+              comprehensive, and if something doesn't work right away, Google is
+              your best bet anyway. For each step, you'll very likely have to
+              just Google how to do it, but let me know if something looks off.
             </p>
+            <ul>
+              <li>
+                Set up the Pi with an OS, if it doesn't have one already. I
+                believe I used the default Raspbian.
+              </li>
+              <li>
+                Download the
+                <a
+                  href="https://github.com/debkbanerji/lego-pi-ano"
+                  target="_blank"
+                  >Source Code</a
+                >, either by cloning it using git or downloading and unzipping
+                the repo somewhere. From now on, you'll be working in the `code`
+                folder.
+              </li>
+              <li>
+                Install the requirements from the requirements.txt file using
+                pip.
+              </li>
+              <li>
+                Run `piano-flask-server.py` using Python - I believe you'll need
+                to be using Python 3, and the pip you used will have to match
+              </li>
+              <li>
+                Connect your Raspberry pi to your wifi network, and set it up so
+                that it will only boot when a wifi connection is available (I
+                believe you can do this from the bios). Alternatively, you can
+                look up how to get the Pi to host its own wifi network, but I
+                haven't tested this.
+              </li>
+              <li>
+                Find the local ip address of the Pi - using `ifconfig` should do
+                the trick.
+              </li>
+              <li>
+                Navigate to `(the pi's ip address):8080` (ex:
+                `192.168.0.13:8080`) in a pc or phone browser that's on the same
+                network, as the Pi, and make sure the Ui shows up. If it
+                doesn't, check that everything is connected to the network
+                correctly.
+              </li>
+              <li>
+                Set up the Pi so that the Python script runs at startup - for
+                me, I believe modifying my bashrc did the trick.
+              </li>
+              <li>
+                If everything went well, you shouldn't need to change software
+                on the Pi anymore, so you can run it headless from now on.
+              </li>
+            </ul>
+
             <p>
-              If you want to run the audio directly on the Raspberry Pi with a
-              small speaker, you can combine the server and client code pretty
-              easily.
-            </p>
-            <p>
-              I recommend making sure the software is working as expected before
-              you start putting together the hardware (manually connect the GPIO
-              pins to test that inputs are being registered correctly), and
-              testing every so often during the build to make sure you haven't
-              broken anything.
+              <b>Room for improvement</b><br />
+              The software is far from perfect, and could be improved in many
+              ways. The reason these haven't been done is because I haven't yet
+              been able to justify the time commitment, but let me know if you'd
+              be interested.
             </p>
           </div>
         </div>
@@ -411,7 +460,7 @@
           <p>
             The key idea behind the design is using aluminum foil around the
             base and each key and connecting each key's foil to a GPIO output on
-            the Raspbrry Pi to determine whether or not a key is pressed by
+            the Raspebrry Pi to determine whether or not a key is pressed by
             checking whether or not the circuit was broken. This design results
             in keys which feel unchanged from those the original set, and
             hardware that can be built without needing to get a bunch of
@@ -420,13 +469,18 @@
           <p>
             We start by building just the keyboard portion of the Lego set (this
             starts at bag 11 of the instructions) - we'll revisit the rest of
-            the set once this is working reliably. Once that's done, we'll wrap
-            the entire base of it in foil - this will be our ground once we
-            connect it to the Raspberry Pi's ground. We also add a male to
-            female wire on 25 separate GPIO pins starting from 2, and an
-            additional wire for ground (consult a pin map of your model for this
-            step). We haven't yet built the switches, but this is a good time to
-            test out the software by manually closing the circuits.
+            the set once this is working reliably. If your piano is already
+            built, take it apart and lift out the keyboard and power functions
+            assemblies so that you can work on the areas in the following
+            pictures - it's annoying, but not as tricky as it looks, based on my
+            experience. Once that's done, we'll wrap the entire base underneath
+            the keys in foil - this will be our ground once we connect it to the
+            Raspberry Pi's ground. We also add a male to female wire on 25
+            separate GPIO pins starting from 2, and an additional wire for
+            ground (consult a pin map of your model for this step). We haven't
+            yet built the switches, but this is a good time to test out the
+            software by manually closing the circuits and making sure the keys
+            on the UI light up/produce sound.
           </p>
         </div>
         <div class="col-lg-6">
@@ -509,18 +563,20 @@
         </div>
         <div class="col-lg-6">
           <p>
-            Now we get back to building the piano. We're going to build the rest
-            of the Piano around the keys. Starting from the beginning, we omit
-            the portion where we add the bracket for holding the power functions
-            battery box included with the set (since we don't need it), but
-            otherwise proceed as usual until step 76.
+            Now we get back to building the piano. Ignore the transparent tape
+            on top of the keys in these pictures - these pictures were from the
+            old switch design, but the steps from this point on are the same.
+            We're going to build the rest of the Piano around the keys. Starting
+            from the beginning, we omit the portion where we add the bracket for
+            holding the power functions battery box included with the set (since
+            we don't need it), but otherwise proceed as usual until step 76.
           </p>
           <p>
             The next pictures show the differences in the next few steps. We use
             the parts from these sets to seal in the wires between the keys and
             the Raspberry Pi, and try to orient it so that the ports are easily
-            accessible from the right side panel, (and/or add a battery bank and
-            small speaker here if we want it to be entirely wireless).
+            accessible from the right side panel, (and/or add a battery bank
+            here if we want it to be entirely wireless).
           </p>
         </div>
 
