@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lego Pi-ano</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <h2>Lego Piano Output</h2>
+    <div style="margin-bottom: 10px;">
+      <small class="link-container">
+        <span>Made with ♥ by Deb</span> &bull;
+        <a href="https://lego-pi-ano.debkbanerji.com/" target="_blank"
+          >Documentation</a
+        >
+      </small>
+    </div>
+    <div id="keys-container">
+      <h1 style="">
+        Tap/Click Page to Enable Audio
+      </h1>
+    </div>
+    <div class="link-container">
+      <a href="https://lego-pi-ano.debkbanerji.com/" target="_blank"
+        >What it is + how it works</a
+      >
+    </div>
+    <div class="link-container">
+      <a href="https://github.com/debkbanerji/lego-pi-ano" target="_blank"
+        >Source code</a
+      >
+    </div>
+    <div class="link-container">
+      <a target="_blank" id="toggle-pin-map-controls">Edit pin->key layout</a>
+    </div>
+    <div id="pin-map-controls" hidden></div>
+
+    <script src="howler.min.js"></script>
+    <script src="index.js"></script>
+
+    <canvas id="background-image-cache-canvas" hidden />
+    <script>
+      // add background generation code inline so it loads in before other logic
+      function rgbToHex(r, g, b) {
+        return (
+          "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+        );
+      }
+
+      function handleDarkModeChange() {
+        const canvas = document.getElementById("background-image-cache-canvas");
+        const ctx = canvas.getContext("2d");
+
+        const CIRCLE_RADIUS = 10;
+        const WIDTH_COUNT = 40;
+        const HEIGHT_COUNT = 20;
+        const MIN_CIRCLE_BRIGHTNESS = 245;
+
+        canvas.width = CIRCLE_RADIUS * WIDTH_COUNT;
+        canvas.height = CIRCLE_RADIUS * HEIGHT_COUNT;
+
+        for (let i = 0; i < HEIGHT_COUNT; i++) {
+          for (let j = 0; j < WIDTH_COUNT; j++) {
+            ctx.beginPath();
+            ctx.arc(
+              CIRCLE_RADIUS + 2 * i * CIRCLE_RADIUS,
+              CIRCLE_RADIUS + 2 * j * CIRCLE_RADIUS,
+              CIRCLE_RADIUS,
+              0,
+              2 * Math.PI
+            );
+            let brightness =
+              MIN_CIRCLE_BRIGHTNESS +
+              Math.floor(Math.random() * (255 - MIN_CIRCLE_BRIGHTNESS));
+            ctx.fillStyle = rgbToHex(brightness, brightness, brightness);
+            ctx.fill();
+          }
+        }
+
+        const dataURL = canvas.toDataURL("image/png", 1.0);
+
+        document.body.style.backgroundImage = `url('${dataURL}')`;
+      }
+
+      handleDarkModeChange();
+    </script>
+  </body>
+</html>
